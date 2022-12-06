@@ -1,8 +1,11 @@
-module "s3-bucket" {
-  source  = "app.terraform.io/Arnab/s3-bucket/aws"
-  version = "3.6.0"
-}
-credentials "app.terraform.io" {
-    # valid user API token:
-    token = "xxxxxx.atlasv1.zzzzzzzzzzzzz"
+module "s3_bucket" {
+  source = "terraform-aws-modules/s3-bucket/aws"
+
+  bucket = "my-s3-bucket"
+  acl    = "private"
+
+  versioning = {
+    enabled = true
   }
+
+}
